@@ -7,7 +7,7 @@ if __name__=="__main__":
     f_train = open("data/train_data", "w")
     f_test = open("data/test_data", "w")
     
-    print "data generating..."
+    print ("data generating...")
     last_user_id = None
     for line in f_input:
         line_split = line.strip().split("\t")

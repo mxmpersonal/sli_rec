@@ -104,10 +104,10 @@ if __name__=="__main__":
     ns_file = "data/ns_data"
     output_file = "data/preprocessed_data"
     
-    print "meta preprocessing..."
+    print ("meta preprocessing...")
     meta_preprocessing(meta_readfile, meta_writefile)
-    print "reviews preprocessing..."
+    print ("reviews preprocessing...")
     reviews_preprocessing(reviews_readfile, reviews_writefile)
-    print "data processing..."
+    print ("data processing...")
     negative_sampling(reviews_writefile, meta_writefile, ns_file, negative_sampling_value=1)
     data_processing(ns_file, output_file)

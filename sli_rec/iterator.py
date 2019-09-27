@@ -3,7 +3,7 @@ import json
 import pickle as pkl
 import random
 import math
-from utils import shuffle
+from sli_rec.utils import shuffle
 
 def load_dict(filename):
     try:
@@ -50,7 +50,7 @@ class Iterator:
         target = []
 
         if len(self.source_buffer) == 0:
-            for k_ in xrange(self.k):
+            for k_ in range(self.k):
                 ss = self.source.readline()
                 if ss == "":
                     break

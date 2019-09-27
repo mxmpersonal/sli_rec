@@ -1,4 +1,4 @@
-import cPickle
+import pickle
 
 if __name__=="__main__":
     f_train = open("data/train_data", "r")
@@ -6,7 +6,7 @@ if __name__=="__main__":
     item_dict = {}
     cat_dict = {}
     
-    print "vocab generating..."
+    print ("vocab generating...")
     for line in f_train:
         arr = line.strip("\n").split("\t")
         clk = arr[0]
@@ -38,9 +38,9 @@ if __name__=="__main__":
                 cat_dict[c] = 0
             cat_dict[c] += 1
     
-    sorted_user_dict = sorted(user_dict.iteritems(), key=lambda x:x[1], reverse=True)
-    sorted_item_dict = sorted(item_dict.iteritems(), key=lambda x:x[1], reverse=True)
-    sorted_cat_dict = sorted(cat_dict.iteritems(), key=lambda x:x[1], reverse=True)
+    sorted_user_dict = sorted(user_dict.items(), key=lambda x:x[1], reverse=True)
+    sorted_item_dict = sorted(item_dict.items(), key=lambda x:x[1], reverse=True)
+    sorted_cat_dict = sorted(cat_dict.items(), key=lambda x:x[1], reverse=True)
     
     uid_voc = {}
     index = 0
@@ -62,6 +62,6 @@ if __name__=="__main__":
         cat_voc[key] = index
         index += 1
     
-    cPickle.dump(uid_voc, open("data/user_vocab.pkl", "w"))
-    cPickle.dump(mid_voc, open("data/item_vocab.pkl", "w"))
-    cPickle.dump(cat_voc, open("data/category_vocab.pkl", "w"))
+    pickle.dump(uid_voc, open("data/user_vocab.pkl", "w"))
+    pickle.dump(mid_voc, open("data/item_vocab.pkl", "w"))
+    pickle.dump(cat_voc, open("data/category_vocab.pkl", "w"))

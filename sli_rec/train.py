@@ -1,9 +1,9 @@
 import random
 import numpy as np
 import tensorflow as tf
-from iterator import Iterator
-from model import *
-from utils import *
+from sli_rec.iterator import Iterator
+from sli_rec.model import *
+from sli_rec.utils import *
 
 SEED = 3
 MAX_EPOCH = 10
@@ -27,7 +27,7 @@ def train(train_file = "data/train_data", test_file = "data/test_data", save_pat
         if model_type in MODEL_DICT: 
             cur_model = MODEL_DICT[model_type]
         else:
-            print "{0} is not implemented".format(model_type)
+            print ("{0} is not implemented".format(model_type))
             return
             
         train_data, test_data = Iterator(train_file), Iterator(test_file)
@@ -51,17 +51,17 @@ def train(train_file = "data/train_data", test_file = "data/test_data", save_pat
                 train_accuracy_sum += train_acc
                 itr += 1
                 if (itr % TEST_FREQ) == 0:
-                    print "Iter: {0}, training loss = {1}, training accuracy = {2}".format(
-                          itr, train_loss_sum / TEST_FREQ, train_accuracy_sum / TEST_FREQ)
+                    print ("Iter: {0}, training loss = {1}, training accuracy = {2}".format(
+                          itr, train_loss_sum / TEST_FREQ, train_accuracy_sum / TEST_FREQ))
                           
                     test_auc, test_loss, test_acc = evaluate_epoch(sess, test_data, model)
-                    print "test_auc: {0}, testing loss = {1}, testing accuracy = {2}".format(
-                          test_auc, test_loss, test_acc)
+                    print ("test_auc: {0}, testing loss = {1}, testing accuracy = {2}".format(
+                          test_auc, test_loss, test_acc))
                           
                     if test_auc > best_auc:
                         best_auc = test_auc
                         model.save(sess, best_model_path)
-                        print "Model saved in {0}".format(best_model_path)
+                        print ("Model saved in {0}".format(best_model_path))
                     
                     train_loss_sum = 0.0
                     train_accuracy_sum = 0.0

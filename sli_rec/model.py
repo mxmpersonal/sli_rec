@@ -1,7 +1,7 @@
 import tensorflow as tf
-from rnn_cell_impl import GRUCell, LSTMCell, Time1LSTMCell, Time2LSTMCell, Time3LSTMCell, Time4LSTMCell, CARNNCell
-from rnn import dynamic_rnn
-from utils import *
+from sli_rec.rnn_cell_impl import GRUCell, LSTMCell, Time1LSTMCell, Time2LSTMCell, Time3LSTMCell, Time4LSTMCell, CARNNCell
+from sli_rec.rnn import dynamic_rnn
+from sli_rec.utils import *
 
 class Model(object):
     def __init__(self, user_number, item_number, cate_number, EMBEDDING_DIM, HIDDEN_SIZE, ATTENTION_SIZE):

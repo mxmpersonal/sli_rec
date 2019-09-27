@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 wget http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_Movies_and_TV_5.json.gz
 wget http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/meta_Movies_and_TV.json.gz
 gunzip reviews_Movies_and_TV_5.json.gz
